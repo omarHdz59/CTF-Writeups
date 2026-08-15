@@ -60,6 +60,7 @@ Este repositorio consolida la documentación detallada y los *write-ups* de las 
 | **Love** | `Fácil` | 🪟 Windows | • Auth Bypass con SQLi + subida de WebShell PHP.<br>• Abuso de la directiva de Windows Installer `AlwaysInstallElevated`. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/Love/Love.md) |
 | **OpenSource** | `Fácil` | 🐧 Linux | • Análisis de historial de commits en Git para extracción de credenciales.<br>• Directory Traversal / Bypass de sanitización en Flask.<br>• Port Forwarding con Chisel + abuso de Cron Jobs locales. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/OpenSource/OpenSource.md) |
 | **Sauna** | `Fácil` | 🪟 Windows | • Enumeración de usuarios y ataque AS-REP Roasting.<br>• Enumeración local con WinPEAS y hallazgo de credenciales AutoLogon.<br>• Mapeo de AD con BloodHound + DCSync attack para Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/Sauna/Sauna.md) |
+| **Administrator** | `Media` | 🪟 Windows | • Enumeración de Active Directory.<br>• Encadenación de multiples movimientos laterales aprovechando privilegios inseguros en AD.<br>• Explotación de DCSync y Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/Administrator/Administrator.md) |
 
 ---
 
