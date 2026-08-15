@@ -1,19 +1,16 @@
 
 ---
 
+<h1>Antique</h1>
+
 ![Antique](../Antique/Images/machine-logo.png)
 
-# Información
 
-- **Nombre**: Antique
-- **Difilcultad**: Fácil
-- **Plataforma**: Hack The Box
-- **Autor**: MrR3boot
-- **Técnicas usadas**: Enumeración SNMP, Explotación de CUPS administration, Pivoting local, Montar servidores HTTP locales para compartir archivos con Python.
+**Resumen:** Antique es una máquina Linux de dificultad fácil centrada en la enumeración de servicios legados. La explotación inicia enumerando SNMP para consultar un OID de impresoras HP que expone una contraseña de administración. Esta credencial permite el acceso por Telnet donde, gracias a permisos mal configurados, se obtiene una consola interactiva. La escalada de privilegios se concreta explotando una lectura arbitraria de archivos en el servicio CUPS, ejecutado como root.
 
 ---
 
-## 1. Reconocimiento
+## 2. Reconocimiento
 
 **Verificación de Conectividad**
 Una vez establecida la conexión VPN, se inicia la fase de reconocimiento verificando la disponibilidad del objetivo mediante la herramienta ping. Se envían cuatro paquetes ICMP para confirmar la comunicación:
@@ -36,7 +33,7 @@ El comando muestra una respuesta exitosa. Basándonos en el valor del TTL (Time 
 
 ---
 
-## 2. Enumeración de puertos (TCP)
+## 3. Enumeración de puertos (TCP)
 
 Tras establecer conectividad con el objetivo, se procedió a realizar un escaneo exhaustivo de todo el rango de puertos **TCP (0-65535)** para identificar servicios expuestos.
 
@@ -44,7 +41,7 @@ Tras establecer conectividad con el objetivo, se procedió a realizar un escaneo
 nmap -p- --open --min-rate 5000 -sS -Pn -n 10.129.15.105 -oN full-ports.txt
 ```
 
-### 2.1 Detección de versiones y servicios
+### 3.1 Detección de versiones y servicios
 
 Una vez identificado el **puerto 23 (Telnet)** como único puerto abierto, se procedió a realizar un escaneo dirigido utilizando el **Nmap Scripting Engine (NSE)** y la detección de versiones para profundizar en la naturaleza del servicio.
 
@@ -52,7 +49,7 @@ Una vez identificado el **puerto 23 (Telnet)** como único puerto abierto, se pr
 nmap -p 23 -sCV 10.129.15.105-oN service-detection.txt
 ```
 
-#### 2.2 Análisis de Resultados e intento de acceso
+#### 3.2 Análisis de Resultados e intento de acceso
 
 Los resultados del escaneo y la interacción manual revelan que el servicio corresponde a una interfaz **HP JetDirect**, una tecnología de impresión común en redes corporativas.
 
@@ -71,13 +68,13 @@ Invalid password
 Connection closed by foreign host.
 ```
 
-##### 2.3 Hallazgos y Siguientes Pasos
+##### 3.3 Hallazgos y Siguientes Pasos
 
 La respuesta del servidor confirma que el acceso está restringido mediante contraseña y que se trata de un dispositivo de impresión. Dado que el vector TCP no ofrece más puntos de entrada inmediatos, se ampliará el alcance de la auditoría hacia la **enumeración de puertos UDP**, buscando servicios adicionales como **SNMP**, los cuales suelen estar asociados a este tipo de dispositivos.
 
 ---
 
-## 3. Enumeración de puertos (UDP)
+## 4. Enumeración de puertos (UDP)
 
 Debido a la naturaleza del protocolo UDP y la lentitud en su escaneo, optó por una estrategia de **optimización de rendimiento**. En lugar de un barrido completo, se realizó un escaneo dirigido a los **100 puertos más comunes** (`--top-ports 100`), ajustando la tasa de envío de paquetes para agilizar el proceso sin comprometer la fiabilidad de los resultados.
 
@@ -85,7 +82,7 @@ Debido a la naturaleza del protocolo UDP y la lentitud en su escaneo, optó por 
 nmap --top-ports 100 --open -sU --min-rate 5000 10.129.15.105 -oN UDP-scan.txt
 ```
 
-### 3.1 Análisis de resultados
+### 4.1 Análisis de resultados
 
 El escaneo identificó el **puerto 161** en estado abierto, ejecutando el servicio **SNMP** (_Simple Network Management Protocol_).
 
@@ -96,7 +93,7 @@ PORT    STATE SERVICE VERSION
 161/udp open  snmp    SNMPv1 server (public)
 ```
 
-#### 3.2 Hallazgos clave:
+#### 4.2 Hallazgos clave:
 
 - **Versión:** SNMPv1.
 - **Community String:** Se identificó la comunidad por defecto **"public"**.
@@ -104,7 +101,7 @@ PORT    STATE SERVICE VERSION
 
 ---
 
-## 4. Enumeración SNMP e identificación de vulnerabilidades
+## 5. Enumeración SNMP e identificación de vulnerabilidades
 
 Al ejecutar un volcado inicial de SNMP utilizando la comunidad `public`, el servicio devolvió una información extremadamente limitada, reportando únicamente la cadena descriptiva: **"HTB Printer"**.
 
@@ -113,7 +110,7 @@ snmpwalk -v 2c -c public 10.129.15.105
 iso.3.6.1.2.1 = STRING: "HTB Printer"
 ```
 
-### 4.1 Búsqueda de vulnerabilidades con searchsploit
+### 5.1 Búsqueda de vulnerabilidades con searchsploit
 
 Ante la falta de información, se procedió a buscar vulnerabilidades específicas para servicios SNMP en dispositivos de impresión mediante `searchsploit`.
 
