@@ -1,12 +1,11 @@
 <div align="center">
 
-<h1> 📑 Hack The Box Write-ups Portfolio </h1>
+<h1> 📑 Hack The Box Write-ups </h1>
 
 <p><b>Documentación técnica, metodologías de ataque y reportes de auditoría de máquinas HTB.</b></p>
 
 [![Plataforma](https://img.shields.io/badge/Plataforma-Hack%20The%20Box-111927?style=for-the-badge&logo=hackthebox&logoColor=9FEF00)](https://www.hackthebox.com)
-[![Enfoque](https://img.shields.io/badge/Enfoque-Offensive%20Security%20%26%20CTF-111927?style=for-the-badge&logo=kalilinux&logoColor=557CDA)](https://www.kali.org)
-[![Máquinas](https://img.shields.io/badge/Máquinas_Resueltas-18-blue?style=for-the-badge)]()
+[![Máquinas](https://img.shields.io/badge/Máquinas_Resueltas-64-blue?style=for-the-badge)](https://profile.hackthebox.com/profile/019c3639-2e8e-730f-a9ff-b7cc43ef6a4f?utm_medium=copy_url)
 
 </div>
 
@@ -16,27 +15,32 @@
 
 ## 🛠️ Herramientas & Tecnologías Frecuentes
 
-
-![Nmap](https://img.shields.io/badge/Nmap-025E8A?style=flat-square&logo=nmap&logoColor=white)
-![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6600?style=flat-square&logo=burpsuite&logoColor=white)
-![Metasploit](https://img.shields.io/badge/Metasploit-000000?style=flat-square&logo=metasploit&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=GNU%20Bash&logoColor=white)
-![Active Directory](https://img.shields.io/badge/Active_Directory-0078D4?style=flat-square&logo=windows&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Nmap](https://custom-icon-badges.demolab.com/badge/Nmap-14B528?style=flat-square&logo=nmap&logoColor=black)
+![Burp Suite](https://custom-icon-badges.demolab.com/badge/Burpsuite-FF6D05?style=flat-square&logo=burpsuite&logoColor=white)
+![Metasploit](https://custom-icon-badges.demolab.com/badge/Metasploit-FFFFFF?style=flat-square&logo=metasploit&logoColor=2496ED)
+![Python](https://custom-icon-badges.demolab.com/badge/Python-3776AB?style=flat-square&logo=python&logoColor=FFD43B)
+![Bash](https://custom-icon-badges.demolab.com/badge/Bash-4EAA25?style=flat-square&logo=GNU%20Bash&logoColor=white)
+![Active Directory](https://custom-icon-badges.demolab.com/badge/Active_Directory-0078D4?style=flat-square&logo=windows11&logoColor=white)
+![Docker](https://custom-icon-badges.demolab.com/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 </div>
 
 ---
 
+<div align="center">
+
 ## 🎯 Propósito del Repositorio
 
-Este repositorio consolida la documentación detallada y los *write-ups* de las máquinas retiradas de **Hack The Box**. Está diseñado bajo dos pilares clave:
+ Documentación y write-ups de las máquinas de Hack The Box que he ido resolviendo. El proyecto tiene dos metas claras:
 
-* **Documentación Técnica de Nivel Profesional:** Simulación de informes de auditoría (pentesting) enfocados en el vector de entrada, movimiento lateral y escalada de privilegios.
-* **Aporte a la Comunidad:** Estructura didáctica paso a paso para estudiantes y entusiastas que buscan profundizar en ciberseguridad ofensiva y desarrollo de habilidades en CTFs.
+**1. Bitácora personal:** Documentar mi aprendizaje y tener un punto de referencia para repasar técnicas en el futuro.<br>
+**2. Apoyo a la comunidad:** Compartir soluciones didácticas paso a paso para quienes se inician en ciberseguridad ofensiva y resolución de CTFs.<br>
+
+</div>
 
 ---
+
+<div align="center">
 
 ## 💻 Máquinas Resueltas
 
@@ -61,10 +65,18 @@ Este repositorio consolida la documentación detallada y los *write-ups* de las 
 | **OpenSource** | `Fácil` | 🐧 Linux | • Análisis de historial de commits en Git para extracción de credenciales.<br>• Directory Traversal / Bypass de sanitización en Flask.<br>• Port Forwarding con Chisel + abuso de Cron Jobs locales. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/OpenSource/OpenSource.md) |
 | **Sauna** | `Fácil` | 🪟 Windows | • Enumeración de usuarios y ataque AS-REP Roasting.<br>• Enumeración local con WinPEAS y hallazgo de credenciales AutoLogon.<br>• Mapeo de AD con BloodHound + DCSync attack para Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/Sauna/Sauna.md) |
 | **Administrator** | `Media` | 🪟 Windows | • Enumeración de Active Directory.<br>• Encadenación de multiples movimientos laterales aprovechando privilegios inseguros en AD.<br>• Explotación de DCSync y Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/Administrator/Administrator.md) |
+| **BabyTwo** | `Media` | 🪟 Windows | • Enumeración de Active Directory con BloodHound.<br>• Ejecución arbitraria de comandos a través de scripts de inicio de sesión en SYSVOL.<br>• Escalada de privilegios mediante abuso de GPO. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/BabyTwo/BabyTwo.md) |
+| **Certified** | `Media` | 🪟 Windows | • Enumeración de Active Directory con BloodHound.<br>• Cadena de explotación a través del abuso de ACL inseguros.<br>• Shadow Credentials Attack. <br>• Abuso de plantilla ESC9 (No Security Extension Flag). | [📖 Leer]() |
+
+</div>
 
 ---
 
+<div align="center">
+
 > ⚠️ **Descargo de Responsabilidad (Disclaimer):**  
 > El contenido publicado en este repositorio tiene fines **estrictamente educativos y de investigación personal**. Las técnicas documentadas corresponden a entornos de prueba retirados y legalmente autorizados por la plataforma **Hack The Box**. No promuevo ni respaldo el uso indebido de estas técnicas en sistemas no autorizados.
+
+</div>
 
 ---
