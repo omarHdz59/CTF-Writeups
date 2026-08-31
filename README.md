@@ -66,7 +66,7 @@
 | **Sauna** | `Fácil` | 🪟 Windows | • Enumeración de usuarios y ataque AS-REP Roasting.<br>• Enumeración local con WinPEAS y hallazgo de credenciales AutoLogon.<br>• Mapeo de AD con BloodHound + DCSync attack para Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/tree/main/Easy-HTB/Sauna/Sauna.md) |
 | **Administrator** | `Media` | 🪟 Windows | • Enumeración de Active Directory.<br>• Encadenación de multiples movimientos laterales aprovechando privilegios inseguros en AD.<br>• Explotación de DCSync y Pass-The-Hash. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/Administrator/Administrator.md) |
 | **BabyTwo** | `Media` | 🪟 Windows | • Enumeración de Active Directory con BloodHound.<br>• Ejecución arbitraria de comandos a través de scripts de inicio de sesión en SYSVOL.<br>• Escalada de privilegios mediante abuso de GPO. | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/BabyTwo/BabyTwo.md) |
-| **Certified** | `Media` | 🪟 Windows | • Enumeración de Active Directory con BloodHound.<br>• Cadena de explotación a través del abuso de ACL inseguros.<br>• Shadow Credentials Attack. <br>• Abuso de plantilla ESC9 (No Security Extension Flag). | [📖 Leer]() |
+| **Certified** | `Media` | 🪟 Windows | • Enumeración de Active Directory con BloodHound.<br>• Cadena de explotación a través del abuso de ACL inseguros.<br>• Shadow Credentials Attack. <br>• Abuso de plantilla ESC9 (No Security Extension Flag). | [📖 Leer](https://github.com/omarHdz59/CTF-Writeups/blob/main/Medium-HTB/Certified/Certified.md) |
 
 </div>
 
